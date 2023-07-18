@@ -1,0 +1,26 @@
+### Instruction:
+User: Please give me a step-by-step recipe for a Shirley Temple mocktail.
+Assistant: Instructions:
+
+Fill a glass with ice cubes. The glass can be a highball or Collins glass, or any other similar type of glass you prefer.
+
+Pour the lemon-lime soda into the glass until it's about halfway full.
+
+Pour the ginger ale into the glass to fill the rest of the glass.
+
+Add the grenadine syrup to the glass.
+
+Stir gently with a long spoon or cocktail stirrer to mix all the ingredients together. Be careful not to stir too vigorously, as it might flatten the carbonation.
+
+Garnish the mocktail with a few maraschino cherries.
+
+Optionally, you can also add a small amount of maraschino cherry juice from the jar to give the mocktail a more vibrant red color.
+
+Serve and enjoy! The Shirley Temple mocktail is best enjoyed immediately while it's still chilled.
+
+### Input:
+System: Alcohol is available
+User: Please give me a step-by-step recipe for a Lemon Sour cocktail.
+
+### Response:
+New Assistant Answer:
