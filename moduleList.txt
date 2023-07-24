@@ -1,0 +1,23 @@
+Level 1: 
+ADD(i,d) [adds ingredient i to container d]
+SHAKE(s) [shakes shaker for s seconds]
+STRAIN(i,d) [strains contents of container i to container d]
+STIR(c) [stirs ingredients of container c]
+
+Level 2:
+POUR(i,d) [adds pourable ingredient i to container d]
+GARNISH(i,d) [adds ingredient i to rim of container d]
+CUT(x,y) [cuts ingredient x into the shape of y]
+
+Level 3:
+PICKUP(u) [pick up object u]
+PUTDOWN(d) [put down object d]
+ALIGN(a,b) [aligns object a above object b to pour or put down]
+SCREW(s) [screws on the lid of object s]
+UNSCREW(s) [unscrews the lid of object s]
+
+
+Level 4:
+FIND(f) [find object f]
+MOVE(x) [move to location x]
+NAME_MIXTURE(c,n) [names mixture in container c with the name n to be used later in the recipe]
