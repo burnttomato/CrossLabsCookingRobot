@@ -1,28 +1,6 @@
 import re
 import sys
 
-testString = '''
-transfer(ice, glass)]
-Rewrite "Stir the cream".
-[shake(cream)]
-stransfer()
-transfer(gla)
-transfer(g,a,b)
-otransfer(ice,glass)
- transfer(ce, gka)
-tran
-sfer(ice, glass)
-f[transfer ( ice ,glass)]
-transfer ( ice,glass
-)
->>ANSWER<<[
-transfer (ice, glass])
-transfer (glass, cie
-transfer(    ice, glass )
-transfer(wine,glass)
-)
-
-'''
 path = sys.argv[1]
 
 text_file = open(path, "r")
@@ -36,19 +14,30 @@ one_regex = r'[\s](transfer\(([^,]*)\))' #this will find one argument things
 #two_regex = r'[\s](transfer\([^,]*,[^,\)]*\))' #this will find 2 arg modules
 two_regex = r'(transfer\([^,]*,[^,\)]*\))' #this will find 2 arg modules
 
+transfer_regex = r'(transfer\([^,]*,[^,\)]*\))' #this will find 2 arg modules
+shake_regex = r'(shake\([^,]*\))' #this will find one argument things
 
-sep = ">>ANSWER<<[\n"
+
+combine_regex = r'(transfer\([^,]*,[^,\)]*\))|(shake\([^,]*\))'
+#transfer_regex+"|"+shake_regex
+#sep = ">>ANSWER<<[\n"
+sep = "Result: >>INTRODUCTION<<"
 
 sList = inString.split(sep)
 #print(sList)
 
 voteList = []
-del sList[0:2] #the first two substrings are bad because they only contain the prompt
+
 for substr in sList:
-    print(substr,"\n\n")
-    match = re.findall(two_regex,substr)
-    if(len(match) > 0): 
-        target = match[0] #since the first match is likely to be the function call after prompt finishes
+    funct_list = []
+    target_list = re.findall(combine_regex,substr)
+    if(len(target_list) > 6):
+        target = target_list[6]
         print("TARGET: ",target,"\n")
+        #funct_list.append(m.span() for m in re.finditer(combine_regex,substr))
+        voteList.append(target)
+
 print(voteList)
-print(max(set(voteList), key=voteList.count))
+voteMode = max(set(voteList), key=voteList.count)
+
+print(voteMode)
