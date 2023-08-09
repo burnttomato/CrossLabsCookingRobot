@@ -22,8 +22,8 @@ The following are the steps that we followed to achieve the task.
 
 Here is a list of other important documentation that we have in this repository.
 
-- [Module List](moduleList.md) - this is a list of all the modules that we plan on using
-- [Architectural Decision Record](adr.md) - this file is a running record of all major decisions in the project
+- [Module List](docs/moduleList.md) - this is a list of all the modules that we plan on using
+- [Architectural Decision Record](docs/adr.md) - this file is a running record of all major decisions in the project
 
 ## Contributors
 
