@@ -20,8 +20,9 @@ The following are the steps that we followed to achieve the task.
 
 ## Usage Instructions
 
-After downloading all the packages from requirements.txt, create a folder with all your prompts as txt files. 
-An example prompt:
+After downloading all the packages from requirements.txt, make sure the appropriate LLM (something from the Falcon family for now) from HuggingFace.
+Then create a folder with all your prompts as txt files. 
+An example prompt is shown here:
 ```
 >>INTRODUCTION<<I want to rewrite instructions using one of the two predefined modules: stir(c), where c is something to be stirred; transfer(i,d), where i is an item to be added to the container d. Enclose your answer in square brackets. Don't ask any more questions.
 >>QUESTION<<Rewrite "Stir the juice".
@@ -35,7 +36,7 @@ An example prompt:
 >>QUESTION<<Rewrite "Add the ice to the bucket and then stir the ice".
 >>ANSWER<<[
 ```
-The key to writing prompts for Falcon models is to make use of the reserved tokens INTRODUCTION, QUESTION, and ANSWER as shown here. In addition, we used a single square bracket at the end of the prompt to make it easier for postprocessing from countsearch.py to distinguish where the LLM response begins.
+The key to writing prompts for Falcon models is to make use of the reserved tokens INTRODUCTION, QUESTION, and ANSWER [as shown here](https://huggingface.co/tiiuae/falcon-7b-instruct/discussions/1). In addition, we used a single square bracket at the end of the prompt to make it easier for postprocessing from countsearch.py to distinguish where the LLM response begins. This square bracket corresponds to the variable "sep2" in countsearch.
 
 Next, adjust the parameters in txtF7bi.py appropriately (i.e. number of trials, batch size, max token length, etc). Feed it the location of your prompt file like so:
 ```
@@ -47,6 +48,7 @@ After manually verifying this, use countsearch.py to postprocess this file and o
 ```
 python countsearch.py ../results/result1.txt ../results/final/final1.txt
 ```
+From here, we recorded the final results onto a spreadsheet and analyzed the best prompts by seeing which ones gave correct answers with the highest confidence.
 
 ## Documentation
 
