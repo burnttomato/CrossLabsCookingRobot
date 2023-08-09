@@ -1,6 +1,6 @@
 # Modules List
 
-This file contains a list of the modules that are planned to be used for the cooking robot. Each module will include parameters, example uses, and any notes that may arise from development and testing.
+This file contains a list of the modules that are planned to be used for the cooking robot. Each module will include parameters, example uses, and any notes that may arise from development and testing. All modules are transcribed from the following, updated [Google Sheets file](https://docs.google.com/spreadsheets/d/e/2PACX-1vSiipvisSo2z4f8iZjyYw6rBdNm7CZ88OOkHevlUx89v0vSZdrDpnFXYAgNjMbJz3S_jCeZckYI0xPF/pubhtml?gid=9782156&single=true&widget=true&headers=false#), which may be more updated than this file.
 
 **Table of Contents**
 
