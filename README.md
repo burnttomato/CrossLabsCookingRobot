@@ -18,6 +18,13 @@ The following are the steps that we followed to achieve the task.
 
 3. Prompt engineer the Falcon 7b Instruct model to work on one line of an instruction, translating the natural language into a string of modules. At the moment, not sure how to determine how many modules it should create, so it often overshoots.
 
+## Documentation
+
+Here is a list of other important documentation that we have in this repository.
+
+- [Module List](moduleList.md) - this is a list of all the modules that we plan on using
+- [Architectural Decision Record](adr.md) - this file is a running record of all major decisions in the project
+
 ## Contributors
 
 - [Oliver Wang](https://github.com/burnttomato)
