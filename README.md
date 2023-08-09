@@ -18,6 +18,36 @@ The following are the steps that we followed to achieve the task.
 
 3. Prompt engineer the Falcon 7b Instruct model to work on one line of an instruction, translating the natural language into a string of modules. At the moment, not sure how to determine how many modules it should create, so it often overshoots.
 
+## Usage Instructions
+
+After downloading all the packages from requirements.txt, create a folder with all your prompts as txt files. 
+An example prompt:
+```
+>>INTRODUCTION<<I want to rewrite instructions using one of the two predefined modules: stir(c), where c is something to be stirred; transfer(i,d), where i is an item to be added to the container d. Enclose your answer in square brackets. Don't ask any more questions.
+>>QUESTION<<Rewrite "Stir the juice".
+>>ANSWER<<[stir(juice)]
+>>QUESTION<<Rewrite "Stir the rum slowly, then stir the wine".
+>>ANSWER<<[stir(rum) stir(wine)]
+>>QUESTION<<Rewrite "Pour the water into the cup".
+>>ANSWER<<[transfer(water, cup)]
+>>QUESTION<<Rewrite "Add the soup into the bowl, then stir the soup".
+>>ANSWER<<[transfer(soup, bowl) stir(soup)]
+>>QUESTION<<Rewrite "Add the ice to the bucket and then stir the ice".
+>>ANSWER<<[
+```
+The key to writing prompts for Falcon models is to make use of the reserved tokens INTRODUCTION, QUESTION, and ANSWER as shown here. In addition, we used a single square bracket at the end of the prompt to make it easier for postprocessing from countsearch.py to distinguish where the LLM response begins.
+
+Next, adjust the parameters in txtF7bi.py appropriately (i.e. number of trials, batch size, max token length, etc). Feed it the location of your prompt file like so:
+```
+python txtF7bi.py ../prompts/prompt1.txt > ../results/result1.txt
+```
+
+After manually verifying this, use countsearch.py to postprocess this file and obtain a translation that the LLM believes is most accurate, along with confidence scores for its translation corresponding to the percent of trials that agreed on a given translated module.
+
+```
+python countsearch.py ../results/result1.txt ../results/final/final1.txt
+```
+
 ## Documentation
 
 Here is a list of other important documentation that we have in this repository.
