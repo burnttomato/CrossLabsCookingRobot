@@ -18,7 +18,7 @@ The following are the steps that we followed to achieve the task.
 
 2. Create a spreadsheet of abstract modules from the verbs sampled. For each, include paramaters that a robot would need to execute the module, as well as some example use cases.
 
-3. Prompt engineer the Falcon 7b Instruct model to work on one line of an instruction, translating the natural language into a string of modules. At the moment, not sure how to determine how many modules it should create, so it often overshoots.
+3. Prompt engineer the Falcon 7b Instruct model to work on one line of an instruction, translating the natural language into a string of modules.
 
 ## Usage Instructions
 
