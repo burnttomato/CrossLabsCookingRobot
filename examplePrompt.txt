@@ -1,0 +1,15 @@
+>>INTRODUCTION<<You are a translator rewriting recipe lines. Rephrase the following line of a recipe using the two predefined modules: stir(c), where c is something to be stirred; transfer(i,d), where i is an item to be added to the container d. Explain your thought process and enclose your answer in square brackets. 
+>>QUESTION<<Rewrite "Stir quickly".
+>>ANSWER<<[stir(ingredients)]
+>>QUESTION<<Rewrite "Add the soup into the bowl, then stir".
+>>ANSWER<<[transfer(soup, bowl) stir(soup)]
+>>QUESTION<<Rewrite "Combine the vodka and ice cubes in the glass, then garnish".
+>>ANSWER<<[transfer(vodka, glass) transfer(ice cubes, glass) transfer(garnish, glass)]
+>>QUESTION<<Rewrite "Combine the juice and gin in a glass".
+>>ANSWER<<[transfer(juice, glass) transfer(gin, glass)]
+>>QUESTION<<Rewrite "Add lemonade".
+>>ANSWER<<[transfer(lemonade, glass)]
+>>QUESTION<<Rewrite "Stir gently".
+>>ANSWER<<[stir(ingredients)]
+>>QUESTION<<Rewrite "Garnish".
+>>ANSWER<<[transfer(garnish, glass)]
