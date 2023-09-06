@@ -2,6 +2,8 @@
 
 In an effort to explore how large language models (LLMs) can be used to aid the planning of robots to translate natural language tasks into code for a general purpose robot, CrossLabs explores the conversion of cocktail recipes into robot-readable instructions.
 
+[Check out our report here!](https://www.overleaf.com/read/qmggjkjvnkbq)
+
 ## Diagram
 
 The following is a flowchart diagramming the idea of the cooking robot. This repository specifically focuses on the LLM swimlane and the defining of the available modules in the modules database/API.
@@ -33,28 +35,24 @@ An example prompt is shown here:
 >>ANSWER<<[transfer(water, cup)]
 >>QUESTION<<Rewrite "Add the soup into the bowl, then stir the soup".
 >>ANSWER<<[transfer(soup, bowl) stir(soup)]
->>QUESTION<<Rewrite "Add the ice to the bucket and then stir the ice".
->>ANSWER<<[
 ```
-The key to writing prompts for Falcon models is to make use of the reserved tokens INTRODUCTION, QUESTION, and ANSWER [as shown here](https://huggingface.co/tiiuae/falcon-7b-instruct/discussions/1). In addition, we used a single square bracket at the end of the prompt to make it easier for postprocessing from countsearch.py to distinguish where the LLM response begins. This square bracket corresponds to the variable "sep2" in countsearch.
+You can find another example prompt in the file exampleprompt.txt too. Make sure that you end your prompt with a square bracket as shown, so that the appended text from api.py makes sense to the postprocessor.
 
-Next, adjust the parameters in txtF7bi.py appropriately (i.e. number of trials, batch size, max token length, etc). Feed it the location of your prompt file like so:
+The key to writing prompts for Falcon models is to make use of the reserved tokens INTRODUCTION, QUESTION, and ANSWER [as shown here](https://huggingface.co/tiiuae/falcon-7b-instruct/discussions/1).
+
+Next, adjust the parameters in api.py appropriately (i.e. number of trials, batch size, max token length, etc). Feed it the location of your prompt file and the desired recipe like so:
 ```
-python txtF7bi.py ../prompts/prompt1.txt > ../results/result1.txt
+nohup python api.py prompts/prompt1.txt "vodka martini" > results/result1.txt
 ```
 
-After manually verifying this, use countsearch.py to postprocess this file and obtain a translation that the LLM believes is most accurate, along with confidence scores for its translation corresponding to the percent of trials that agreed on a given translated module.
-
-```
-python countsearch.py ../results/result1.txt ../results/final/final1.txt
-```
+This will obtain a translation that the LLM believes is most accurate, along with confidence scores for its translation corresponding to the percent of trials that agreed on a given translated module.
 From here, we recorded the final results onto a spreadsheet and analyzed the best prompts by seeing which ones gave correct answers with the highest confidence.
 
 ## Documentation
 
 Here is a list of other important documentation that we have in this repository.
 
-- [Module List](docs/moduleList.md) - this is a list of all the modules that we plan on using
+- [Module List](docs/moduleList.md) - this is a list of all the modules that we plan on using in the future
 - [Architectural Decision Record](docs/adr.md) - this file is a running record of all major decisions in the project
 
 ## Contributors
@@ -68,7 +66,6 @@ Here is a list of other important documentation that we have in this repository.
 
 ## Acknowledgements
 
-Research papers, inspirations, code snippets, etc.
-
 - [Microsoft - ChatGPT for Robotics](https://www.microsoft.com/en-us/research/group/autonomous-systems-group-robotics/articles/chatgpt-for-robotics/)
 - [Falcon 7b Instruct](https://huggingface.co/tiiuae/falcon-7b-instruct)
+- Crosslabs from Cross Compass
