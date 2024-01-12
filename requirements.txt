@@ -111,7 +111,7 @@ torchaudio=2.0.2=py311_cu117
 torchtriton=2.0.0=py311
 torchvision=0.15.2=py311_cu117
 tqdm=4.65.0=pypi_0
-transformers=4.30.2=pypi_0
+transformers=4.36.4=pypi_0
 typing-inspect=0.9.0=pypi_0
 typing_extensions=4.6.3=py311h06a4308_0
 tzdata=2023c=h04d1e81_0
